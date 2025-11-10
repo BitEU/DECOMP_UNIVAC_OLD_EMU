@@ -1175,7 +1175,7 @@ namespace mk152
 		// Token: 0x0600007B RID: 123 RVA: 0x0014E450 File Offset: 0x0014C850
 		private void REG_AL_TextChanged(object eventSender, EventArgs eventArgs)
 		{
-			this.$STATIC$REG_AL_TextChanged$20211C1249$AL = this.REG_AL.Text;
+			this.lastREG_ALText = this.REG_AL.Text;
 		}
 
 		// Token: 0x0600007C RID: 124 RVA: 0x0014E468 File Offset: 0x0014C868
@@ -1220,7 +1220,7 @@ namespace mk152
 		// Token: 0x0600007F RID: 127 RVA: 0x0014E564 File Offset: 0x0014C964
 		private void REG_AU_TextChanged(object eventSender, EventArgs eventArgs)
 		{
-			this.$STATIC$REG_AU_TextChanged$20211C1249$AU = this.REG_AU.Text;
+			this.lastREG_AUText = this.REG_AU.Text;
 		}
 
 		// Token: 0x06000080 RID: 128 RVA: 0x0014E57C File Offset: 0x0014C97C
@@ -3377,9 +3377,9 @@ namespace mk152
 		private TextBox _INS_SECOND;
 
 		// Token: 0x04000081 RID: 129
-		private object $STATIC$REG_AU_TextChanged$20211C1249$AU;
+		private object lastREG_AUText;
 
 		// Token: 0x04000082 RID: 130
-		private object $STATIC$REG_AL_TextChanged$20211C1249$AL;
+		private object lastREG_ALText;
 	}
 }
