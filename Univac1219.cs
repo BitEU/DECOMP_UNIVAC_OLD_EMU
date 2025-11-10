@@ -1327,7 +1327,7 @@ namespace mk152
 				bool flag = Module1.ICR == 0;
 				if (flag)
 				{
-					Module1.ICR = Conversions.ToInteger("&O10");
+					Module1.ICR = Module1.CONST_OCT_10;
 				}
 				Module1.SR = Conversions.ToInteger("&O" + this.REG_SR.Text);
 				flag = !Module1.FUNCTION_REP;
@@ -1370,7 +1370,7 @@ namespace mk152
 					Module1.u = Module1.P & 4095;
 					Module1.CODE = Module1.FUNC;
 				}
-				Module1.ADD_UP = (int)(unchecked((long)Module1.P) & Conversions.ToLong("&O770000"));
+				Module1.ADD_UP = (int)(unchecked((long)Module1.P) & Module1.CONST_OCT_770000);
 				Module1.ADD_USR = (Module1.SR & 7) * 4096;
 				Module1.INDEX = Module1.MEM[Module1.ICR];
 				Module1.ADDRESS = Module1.ADD_UP + Module1.u;
@@ -1405,7 +1405,7 @@ namespace mk152
 					flag = code == 2577;
 					if (flag)
 					{
-						Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+						Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 						flag = !Module1.IN_ACTIVE[Module1.k];
 						if (flag)
 						{
@@ -1418,7 +1418,7 @@ namespace mk152
 						flag = code == 2578;
 						if (flag)
 						{
-							Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+							Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 							flag = !Module1.OUT_ACTIVE[Module1.k];
 							if (flag)
 							{
@@ -1431,7 +1431,7 @@ namespace mk152
 							flag = code == 2579;
 							if (flag)
 							{
-								Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+								Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 								flag = !Module1.EXF_ACTIVE[Module1.k];
 								if (flag)
 								{
@@ -2249,7 +2249,7 @@ namespace mk152
 																																																																		flag2 = code == 60;
 																																																																		if (flag2)
 																																																																		{
-																																																																			Module1.MEM[Module1.ADD_UP + Module1.u] = (int)((unchecked((long)Module1.MEM[checked(Module1.ADD_UP + Module1.u)]) & Conversions.ToLong("&O770000")) + unchecked((long)(Module1.AL & 4095)));
+																																																																			Module1.MEM[Module1.ADD_UP + Module1.u] = (int)((unchecked((long)Module1.MEM[checked(Module1.ADD_UP + Module1.u)]) & Module1.CONST_OCT_770000) + unchecked((long)(Module1.AL & 4095)));
 																																																																		}
 																																																																		else
 																																																																		{
@@ -2273,7 +2273,7 @@ namespace mk152
 																																																																					flag2 = code == 2561;
 																																																																					if (flag2)
 																																																																					{
-																																																																						Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																						Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																						Module1.IN_ACTIVE[Module1.k] = true;
 																																																																					}
 																																																																					else
@@ -2281,7 +2281,7 @@ namespace mk152
 																																																																						flag2 = code == 2562;
 																																																																						if (flag2)
 																																																																						{
-																																																																							Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																							Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																							Module1.OUT_ACTIVE[Module1.k] = true;
 																																																																						}
 																																																																						else
@@ -2289,7 +2289,7 @@ namespace mk152
 																																																																							flag2 = code == 2563;
 																																																																							if (flag2)
 																																																																							{
-																																																																								Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																								Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																								Module1.EXF_ACTIVE[Module1.k] = true;
 																																																																							}
 																																																																							else
@@ -2297,7 +2297,7 @@ namespace mk152
 																																																																								flag2 = code == 2569;
 																																																																								if (flag2)
 																																																																								{
-																																																																									Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																									Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																									flag2 = Module1.k > 7;
 																																																																									if (flag2)
 																																																																									{
@@ -2320,7 +2320,7 @@ namespace mk152
 																																																																									flag2 = code == 2570;
 																																																																									if (flag2)
 																																																																									{
-																																																																										Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																										Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																										flag2 = Module1.k > 7;
 																																																																										if (flag2)
 																																																																										{
@@ -2343,7 +2343,7 @@ namespace mk152
 																																																																										flag2 = code == 2571;
 																																																																										if (flag2)
 																																																																										{
-																																																																											Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																											Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																											flag2 = Module1.k > 7;
 																																																																											if (flag2)
 																																																																											{
@@ -2366,7 +2366,7 @@ namespace mk152
 																																																																											flag2 = code == 2573;
 																																																																											if (flag2)
 																																																																											{
-																																																																												Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																												Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																												Module1.IN_ACTIVE[Module1.k] = false;
 																																																																											}
 																																																																											else
@@ -2374,7 +2374,7 @@ namespace mk152
 																																																																												flag2 = code == 2574;
 																																																																												if (flag2)
 																																																																												{
-																																																																													Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																													Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																													Module1.OUT_ACTIVE[Module1.k] = false;
 																																																																												}
 																																																																												else
@@ -2382,7 +2382,7 @@ namespace mk152
 																																																																													flag2 = code == 2575;
 																																																																													if (flag2)
 																																																																													{
-																																																																														Module1.k = (int)(unchecked((long)Module1.k) & Conversions.ToLong("&O17"));
+																																																																														Module1.k = (int)(unchecked((long)Module1.k) & Module1.CONST_OCT_17);
 																																																																														Module1.EXF_ACTIVE[Module1.k] = false;
 																																																																													}
 																																																																													else
@@ -3044,8 +3044,7 @@ namespace mk152
 		// Token: 0x06000095 RID: 149 RVA: 0x0015214C File Offset: 0x0015054C
 		private void Timer1_Tick(object sender, EventArgs e)
 		{
-			Convert.ToString(Module1.KOUNT, 10);
-			this.INS_SECOND.Text = Conversions.ToString(Module1.KOUNT);
+				this.INS_SECOND.Text = Conversions.ToString(Module1.KOUNT);
 			Module1.KOUNT = 0;
 		}
 
@@ -3066,7 +3065,12 @@ namespace mk152
 					}
 					Module1.LOOPS++;
 					loops = Module1.LOOPS;
-					num = 30;
+					num = 200;
+			// Allow IO timer to fire every 10 instructions
+			if ((loops % 10) == 0)
+			{
+				Application.DoEvents();
+			}
 				}
 				while (loops <= num);
 			}

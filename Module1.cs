@@ -181,6 +181,11 @@ namespace mk152
 		// Token: 0x04000044 RID: 68
 		public static int KOUNT;
 
+		// Performance optimization: Pre-computed constant values
+		public const int CONST_OCT_10 = 8;        // &O10 in octal = 8 in decimal
+		public const long CONST_OCT_17 = 15L;      // &O17 in octal = 15 in decimal
+		public const long CONST_OCT_770000 = 258048L; // &O770000 in octal = 258048 in decimal
+
 		// Token: 0x04000045 RID: 69
 		public static byte CONSOLE_CHAN;
 

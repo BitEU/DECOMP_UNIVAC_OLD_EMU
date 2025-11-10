@@ -482,6 +482,14 @@ namespace mk152
 						FileSystem.FileOpen(1, Module1.TAPE_FILE, OpenMode.Input, OpenAccess.Default, OpenShare.Default, -1);
 						Module1.NEW_FILE = false;
 					}
+				// Process multiple bytes per tick for faster loading (10 bytes per 3ms = ~3,333 bytes/sec)
+				int bytesToProcess = 10;
+				for (int i = 0; i < bytesToProcess; i++)
+				{
+					if (!Module1.IN_ACTIVE[(int)Module1.CONSOLE_CHAN])
+					{
+						break; // Stop if transfer completed
+					}
 					flag2 = FileSystem.EOF(1);
 					if (flag2)
 					{
@@ -493,13 +501,15 @@ namespace mk152
 					}
 					Module1.MEM[Module1.MEM[(int)Module1.IN_IACW]] = (int)Module1.IN_BYTE;
 					Module1.D2 = Conversions.ToUInteger(Conversion.Oct(Module1.IN_BYTE));
-					this.REG_INPUT.Text = Support.Format(Module1.D2, "000", FirstDayOfWeek.Sunday, FirstWeekOfYear.Jan1);
 					flag2 = Module1.MEM[(int)Module1.IN_IACW] == Module1.MEM[(int)(Module1.IN_IACW - 1)];
 					if (flag2)
 					{
 						Module1.IN_ACTIVE[(int)Module1.CONSOLE_CHAN] = false;
 					}
 					Module1.MEM[(int)Module1.IN_IACW] = Module1.MEM[(int)Module1.IN_IACW] + 1;
+				}
+				// Update UI with last byte read
+				this.REG_INPUT.Text = Support.Format(Module1.D2, "000", FirstDayOfWeek.Sunday, FirstWeekOfYear.Jan1);
 				}
 			}
 		}
@@ -591,7 +601,7 @@ namespace mk152
 				flag2 = this.READER.BackColor == Color.OrangeRed;
 				if (flag2)
 				{
-					this.Timer1.Interval = 20;
+					this.Timer1.Interval = 3;
 					this.READER_IN();
 				}
 			}
