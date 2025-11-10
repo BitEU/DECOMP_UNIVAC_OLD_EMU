@@ -409,9 +409,9 @@ namespace mk152
 				{
 					Module1.UPPER = 0;
 				}
-				Module1.IN_IACW = Module1.UPPER + 49 + 2 * Module1.CONSOLE_CHAN;
-				Module1.OUT_IACW = Module1.UPPER + 33 + 2 * Module1.CONSOLE_CHAN;
-				Module1.EXF_IACW = Module1.UPPER + 17 + 2 * Module1.CONSOLE_CHAN;
+				Module1.IN_IACW = (byte)(Module1.UPPER + 49 + 2 * Module1.CONSOLE_CHAN);
+				Module1.OUT_IACW = (byte)(Module1.UPPER + 33 + 2 * Module1.CONSOLE_CHAN);
+				Module1.EXF_IACW = (byte)(Module1.UPPER + 17 + 2 * Module1.CONSOLE_CHAN);
 			}
 		}
 
@@ -613,9 +613,9 @@ namespace mk152
 			}
 			checked
 			{
-				Module1.IN_IACW = Module1.UPPER + 49 + 2 * Module1.CONSOLE_CHAN;
-				Module1.OUT_IACW = Module1.UPPER + 33 + 2 * Module1.CONSOLE_CHAN;
-				Module1.EXF_IACW = Module1.UPPER + 17 + 2 * Module1.CONSOLE_CHAN;
+				Module1.IN_IACW = (byte)(Module1.UPPER + 49 + 2 * Module1.CONSOLE_CHAN);
+				Module1.OUT_IACW = (byte)(Module1.UPPER + 33 + 2 * Module1.CONSOLE_CHAN);
+				Module1.EXF_IACW = (byte)(Module1.UPPER + 17 + 2 * Module1.CONSOLE_CHAN);
 			}
 		}
 

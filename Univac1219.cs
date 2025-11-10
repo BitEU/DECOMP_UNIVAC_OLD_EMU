@@ -2548,7 +2548,7 @@ namespace mk152
 																																																																																					{
 																																																																																						Module1.D += 16;
 																																																																																					}
-																																																																																					flag2 = (Module1.D & (unchecked(-(((Module1.k != 0) > false) ? 1 : 0)) ? 1 : 0)) != 0;
+																																																																																					flag2 = (Module1.D & unchecked(-((Module1.k != 0) ? 1 : 0))) != 0;
 																																																																																					if (flag2)
 																																																																																					{
 																																																																																						Module1.P++;

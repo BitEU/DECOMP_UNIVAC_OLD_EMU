@@ -1,7 +1,6 @@
 ﻿namespace mk152
 {
 	// Token: 0x0200000A RID: 10
-	[global::Microsoft.VisualBasic.CompilerServices.DesignerGenerated]
 	internal partial class Univac1219 : global::System.Windows.Forms.Form
 	{
 		// Token: 0x06000027 RID: 39 RVA: 0x0014ACF8 File Offset: 0x001490F8
