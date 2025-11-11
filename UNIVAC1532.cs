@@ -494,12 +494,20 @@ namespace mk152
 					if (flag2)
 					{
 						this.FILE.Text = "Tape Error";
+						Module1.IN_ACTIVE[(int)Module1.CONSOLE_CHAN] = false;
+						break; // CRITICAL: Stop processing on EOF
 					}
 					else
 					{
 						FileSystem.Input(1, ref Module1.IN_BYTE);
 					}
-					Module1.MEM[Module1.MEM[(int)Module1.IN_IACW]] = (int)Module1.IN_BYTE;
+					int memIndex = Module1.MEM[(int)Module1.IN_IACW];
+					if (memIndex < 0 || memIndex >= Module1.MEM.Length)
+					{
+						Module1.IN_ACTIVE[(int)Module1.CONSOLE_CHAN] = false;
+						break; // Stop on invalid index
+					}
+					Module1.MEM[memIndex] = (int)Module1.IN_BYTE;
 					Module1.D2 = Conversions.ToUInteger(Conversion.Oct(Module1.IN_BYTE));
 					flag2 = Module1.MEM[(int)Module1.IN_IACW] == Module1.MEM[(int)(Module1.IN_IACW - 1)];
 					if (flag2)

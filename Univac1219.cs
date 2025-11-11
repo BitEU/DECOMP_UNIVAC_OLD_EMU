@@ -3051,28 +3051,37 @@ namespace mk152
 		// Token: 0x06000096 RID: 150 RVA: 0x0015217C File Offset: 0x0015057C
 		private void Timer2_Tick(object sender, EventArgs e)
 		{
-			Module1.LOOPS = 1;
-			checked
+			if (_inTimer2Tick) return;  // Already running, skip
+			_inTimer2Tick = true;
+			try
 			{
-				int loops;
-				int num;
-				do
+				Module1.LOOPS = 1;
+				checked
 				{
-					bool flag = Module1.RUNNING & !Module1.BUSY;
-					if (flag)
+					int loops;
+					int num;
+					do
 					{
-						this.EXECUTE();
-					}
-					Module1.LOOPS++;
-					loops = Module1.LOOPS;
-					num = 200;
-			// Allow IO timer to fire every 10 instructions
-			if ((loops % 10) == 0)
-			{
-				Application.DoEvents();
-			}
+						bool flag = Module1.RUNNING & !Module1.BUSY;
+						if (flag)
+						{
+							this.EXECUTE();
+						}
+						Module1.LOOPS++;
+						loops = Module1.LOOPS;
+						num = 200;
+				// Allow IO timer to fire every 10 instructions
+				if ((loops % 10) == 0)
+				{
+					Application.DoEvents();
 				}
-				while (loops <= num);
+					}
+					while (loops <= num);
+				}
+			}
+			finally
+			{
+				_inTimer2Tick = false;  // Always reset
 			}
 		}
 
@@ -3223,6 +3232,9 @@ namespace mk152
 
 		// Token: 0x04000058 RID: 88
 		private static List<WeakReference> __ENCList = new List<WeakReference>();
+
+		// Reentrancy protection for Timer2_Tick
+		private bool _inTimer2Tick = false;
 
 		// Token: 0x0400005A RID: 90
 		[AccessedThroughProperty("BUTTON_LOAD")]
